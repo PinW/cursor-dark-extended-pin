@@ -44,7 +44,7 @@ npm run test   # Shows testing instructions
 ```
 
 ### File Locations
-- **Development location**: `/mnt/c/Users/pinwa/AppData/Roaming/Cursor/User/extensions/cursor-dark-extended-pin/`
+- **Development location**: `/mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin/`
 - **Theme file**: `themes/cursor-dark-extended-pin-color-theme.json`
 - **Test files**: `test-samples/sample.md` and `test-samples/sample-code.js`
 

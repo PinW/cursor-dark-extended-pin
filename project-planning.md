@@ -18,12 +18,12 @@ Use the **Extension Development Host** for instant theme previews:
 
 1. **Copy extension to Cursor extensions folder**:
    ```bash
-   cp -r /home/pin/cursor-dark-extended-pin /mnt/c/Users/pinwa/AppData/Roaming/Cursor/User/extensions/cursor-dark-extended-pin
+   cp -r /home/pin/cursor-dark-extended-pin /mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin
    ```
 
 2. **Open extension folder** in VS Code/Cursor: 
    ```
-   /mnt/c/Users/pinwa/AppData/Roaming/Cursor/User/extensions/cursor-dark-extended-pin/
+   /mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin/
    ```
 
 3. **Press F5** to launch Extension Development Host window
@@ -84,9 +84,9 @@ All changes will be made collaboratively with careful testing using the Extensio
 
 ## Key Files and Locations
 - **Current project**: `/home/pin/cursor-dark-extended-pin/`
-- **Development location**: `/mnt/c/Users/pinwa/AppData/Roaming/Cursor/User/extensions/cursor-dark-extended-pin/`
+- **Development location**: `/mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin/`
 - **Base theme source**: `/mnt/c/Users/pinwa/AppData/Local/Programs/cursor/resources/app/extensions/theme-cursor/themes/Cursor Dark Anysphere-color-theme.json`
-- **Extensions folder**: `/mnt/c/Users/pinwa/AppData/Roaming/Cursor/User/extensions/`
+- **Extensions folder**: `/mnt/c/Users/pinwa/.cursor/extensions/`
 
 ## Goal
 Create "Cursor Dark Extended Pin" theme that keeps the beloved Cursor Dark UI while making markdown documents much more readable with enhanced syntax highlighting for headings, emphasis, code blocks, and other markdown elements.

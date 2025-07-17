@@ -11,7 +11,7 @@ This guide explains how to develop and test the Cursor Dark Extended Pin theme e
 
 2. **Open extension in VS Code/Cursor**:
    ```bash
-   code /mnt/c/Users/pinwa/AppData/Roaming/Cursor/User/extensions/cursor-dark-extended-pin
+   code /mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin
    ```
 
 3. **Launch Extension Development Host**:
