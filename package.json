@@ -1,0 +1,37 @@
+{
+  "name": "cursor-dark-extended-pin",
+  "displayName": "Cursor Dark Extended Pin",
+  "description": "Extended Cursor Dark theme with updated colors and enhanced markdown syntax highlighting",
+  "version": "1.0.0",
+  "publisher": "local",
+  "engines": {
+    "vscode": "^1.74.0"
+  },
+  "categories": ["Themes"],
+  "keywords": ["theme", "dark", "markdown", "cursor"],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/local/cursor-dark-extended-pin"
+  },
+  "license": "MIT",
+  "galleryBanner": {
+    "color": "#1e1e1e",
+    "theme": "dark"
+  },
+  "contributes": {
+    "themes": [
+      {
+        "label": "Cursor Dark Extended Pin",
+        "uiTheme": "vs-dark",
+        "path": "./themes/cursor-dark-extended-pin-color-theme.json"
+      }
+    ]
+  },
+  "scripts": {
+    "build": "vsce package",
+    "dev": "echo 'Development mode: Press F5 in VS Code/Cursor to launch Extension Development Host'",
+    "install-local": "cp -r . \"/mnt/c/Users/pinwa/AppData/Roaming/Cursor/User/extensions/cursor-dark-extended-pin\" && echo 'Extension copied to Cursor extensions folder'",
+    "package": "vsce package",
+    "test": "echo 'Open test-samples/ files in Extension Development Host to test theme changes'"
+  }
+}

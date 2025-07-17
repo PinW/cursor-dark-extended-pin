@@ -1,0 +1,31 @@
+# Build outputs
+*.vsix
+out/
+dist/
+
+# Dependencies
+node_modules/
+
+# VS Code
+.vscode/
+.vscode-test/
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
+
+# Environment files
+.env
+.env.local
+.env.development
+.env.production
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp

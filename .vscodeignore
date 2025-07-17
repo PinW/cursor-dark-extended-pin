@@ -1,0 +1,34 @@
+# Build and packaging files
+*.vsix
+node_modules/
+.vscode-test/
+.vscode/
+
+# Development and documentation files
+theme-extension-progress.md
+test-samples/
+.claude/
+
+# Git and version control
+.git/
+.gitignore
+
+# System files
+.DS_Store
+Thumbs.db
+*.log
+
+# Development configuration
+.env
+.env.local
+.env.development
+.env.production
+
+# IDE files
+*.swp
+*.swo
+*~
+
+# Temporary files
+*.tmp
+*.temp
