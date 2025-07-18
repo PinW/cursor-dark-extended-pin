@@ -11,6 +11,7 @@ const {
   foregrounds,
   accents,
   status,
+  statusBar,
   selections,
   borders,
   syntax,
@@ -283,17 +284,17 @@ export const themeTemplate = {
     "sideBarTitle.foreground": foregrounds.medium,
     
     // Status Bar
-    "statusBar.foreground": foregrounds.statusBar,
-    "statusBar.background": backgrounds.primary,
+    "statusBar.foreground": statusBar.foreground,
+    "statusBar.background": statusBar.background,
     "statusBar.border": borders.subtle,
-    "statusBar.debuggingBackground": "#434C5E",
-    "statusBar.debuggingForeground": foregrounds.editor,
-    "statusBar.noFolderBackground": backgrounds.primary,
-    "statusBar.noFolderForeground": foregrounds.primary,
-    "statusBarItem.activeBackground": selections.medium,
-    "statusBarItem.hoverBackground": selections.dark,
-    "statusBarItem.prominentBackground": backgrounds.tertiary,
-    "statusBarItem.prominentHoverBackground": selections.dark,
+    "statusBar.debuggingBackground": statusBar.debuggingBackground,
+    "statusBar.debuggingForeground": statusBar.debuggingForeground,
+    "statusBar.noFolderBackground": statusBar.noFolderBackground,
+    "statusBar.noFolderForeground": statusBar.noFolderForeground,
+    "statusBarItem.activeBackground": statusBar.itemActiveBackground,
+    "statusBarItem.hoverBackground": statusBar.itemHoverBackground,
+    "statusBarItem.prominentBackground": statusBar.itemProminentBackground,
+    "statusBarItem.prominentHoverBackground": statusBar.itemProminentHoverBackground,
     
     // Tabs
     "tab.activeBackground": backgrounds.secondary,
@@ -341,7 +342,7 @@ export const themeTemplate = {
     
     // Title Bar
     "titleBar.activeBackground": backgrounds.primary,
-    "titleBar.activeForeground": foregrounds.statusBar,
+    "titleBar.activeForeground": statusBar.foreground,
     "titleBar.border": borders.subtle,
     "titleBar.inactiveBackground": backgrounds.primary,
     "titleBar.inactiveForeground": foregrounds.inactive,

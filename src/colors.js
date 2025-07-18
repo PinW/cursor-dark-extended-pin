@@ -18,7 +18,6 @@ export const foregrounds = {
   supplemental: "#FFFFFF70",   // Pin's custom supplemental color
   title: "#BF616A",
   medium: "#CCCCCC",         // Medium light gray - activity bar foreground, menu text
-  statusBar: "#cccccc82",    // Semi-transparent light gray - status bar foreground
   inactive: "#cccccc60",     // More transparent light gray - inactive title bar
   syntax: "#d6d6dd",         // Slightly warmer light gray - syntax highlighting base
   clean: "#d1d1d1",          // Clean light gray - variables, namespaces
@@ -39,6 +38,22 @@ export const status = {
   green: "#A3BE8C",          // Green - Git added, diff inserted, progress bar, terminal green
   red: "#BF616A",            // Red - errors, Git deleted, diff removed, terminal red
   yellow: "#EBCB8B",         // Yellow/amber - warnings, Git modified, terminal yellow
+};
+
+// Status Bar Colors
+export const statusBar = {
+  background: "#141414",             // Normal status bar background
+  foreground: "#cccccc82",           // Normal status bar text (semi-transparent)
+  debuggingBackground: "#434C5E",    // Debugging session background (blue-gray)
+  debuggingForeground: "#D8DEE9",    // Debugging session text (light gray)
+  noFolderBackground: "#141414",     // No folder status bar background
+  noFolderForeground: "#FFFFFF",     // No folder status bar text
+  
+  // Status Bar Items (zoom, language mode, etc.)
+  itemActiveBackground: "#505050",   // Active status bar item background
+  itemHoverBackground: "#404040",    // Hover status bar item background
+  itemProminentBackground: "#2A2A2A", // Prominent status bar item background
+  itemProminentHoverBackground: "#404040", // Prominent status bar item hover background
 };
 
 // Selection and Highlight Colors
@@ -143,6 +158,7 @@ export default {
   foregrounds,
   accents,
   status,
+  statusBar,
   selections,
   borders,
   syntax,
