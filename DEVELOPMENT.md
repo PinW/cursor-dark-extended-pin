@@ -2,6 +2,8 @@
 
 This guide explains how to develop and test the Cursor Dark Extended Pin theme extension.
 
+> **Note for AI assistants**: See [CLAUDE.md](CLAUDE.md) for essential project context and development commands.
+
 ## Quick Start
 
 1. **Copy extension to development location**:
@@ -81,25 +83,27 @@ cursor-dark-extended-pin/
 
 ## Making Theme Changes
 
-### Variable-Based Development (NEW)
+### Variable-Based Development (Recommended)
 
-Instead of editing the JSON directly, modify the source files:
+**Never edit the generated JSON file directly.** Instead, modify the source files in the `src/` directory:
 
 **1. Color Changes** - Edit `src/colors.js`:
 ```javascript
 export const markdown = {
   h1: syntax.functions,     // Change to different color variable
   bold: syntax.numbers,     // Use syntax colors
+  codeBlock: backgrounds.tertiary,  // Use semantic names
   // ...
 };
 ```
 
-**2. Theme Structure** - Edit `src/theme-template.js`:
+**2. Theme Structure** - Edit `src/theme-template.js` for UI colors:
 ```javascript
 "editor.background": backgrounds.secondary,  // Use variable reference
+"editorLineNumber.foreground": selections.medium,
 ```
 
-**3. Syntax Rules** - Edit `src/token-colors.js`:
+**3. Syntax Rules** - Edit `src/token-colors.js` for new highlighting rules:
 ```javascript
 {
   "name": "Markdown H1 Heading",
@@ -114,6 +118,71 @@ export const markdown = {
 **4. Build** - Generate the final theme:
 ```bash
 npm run build:theme
+```
+
+### Working with TextMate Scopes
+
+When adding new syntax highlighting rules:
+
+1. **Find the scope** - Use `Developer: Inspect Editor Tokens and Scopes` command
+2. **Identify the element** - Click on text to see scope names like `markup.heading.1.markdown`
+3. **Add or modify rule** - In `src/token-colors.js`:
+   ```javascript
+   {
+     "name": "Descriptive Name",
+     "scope": "scope.name.from.inspector",
+     "settings": {
+       "foreground": colorVariable.fromColors,
+       "fontStyle": "bold" // optional
+     }
+   }
+   ```
+4. **Reference color variables** - Always use variables from `src/colors.js`
+5. **Build and test** - Run `npm run build:theme` and test in Extension Development Host
+
+### Extension Development Host Workflow
+
+**Setup (once):**
+1. Copy extension: `npm run install-local`
+2. Open in VS Code/Cursor: `code /mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin`
+3. Press F5 to launch development host
+
+**Development cycle:**
+1. Edit source files in main window (`src/colors.js`, `src/token-colors.js`, etc.)
+2. Run `npm run build:theme` to regenerate theme
+3. Reload development host window (Ctrl+R/Cmd+R) to see changes
+4. Test with sample files in development host
+
+**Pro tip:** Use `npm run build:watch` for automatic rebuilding on file changes.
+
+## Extension Packaging and Distribution
+
+### Creating a Release
+
+1. **Build theme**: `npm run build:theme`
+2. **Package extension**: `npm run build` (creates `.vsix` file)
+3. **Test package**: Install the `.vsix` file to verify it works
+4. **Distribute**: Share the `.vsix` file or publish to marketplace
+
+### Package Configuration
+
+The extension uses `vsce` for packaging with `.vscodeignore` excluding development files:
+- `src/` directory (source files)
+- `build.js` (build script)
+- Development documentation
+- Test samples
+
+### Installing a Local Package
+
+```bash
+# Package the extension
+npm run build
+
+# Install via Command Palette
+# 1. Open Command Palette (Ctrl+Shift+P / Cmd+Shift+P)
+# 2. Run "Extensions: Install from VSIX..."
+# 3. Select the generated .vsix file
+# 4. Activate via "Preferences: Color Theme"
 ```
 
 ### Color System
@@ -156,6 +225,33 @@ Always reference variables from `src/colors.js` for centralized maintenance.
 - [ ] Colors work well together
 - [ ] No elements are hard to read
 - [ ] Theme maintains Cursor Dark aesthetic
+
+## Debugging Tools
+
+### Developer: Inspect Editor Tokens and Scopes
+**For developers/users:** Use this VS Code/Cursor command palette function to debug syntax highlighting issues:
+
+1. **Open Command Palette** (`Ctrl+Shift+P` / `Cmd+Shift+P`)
+2. **Run**: `Developer: Inspect Editor Tokens and Scopes`
+3. **Click** on any text element to see:
+   - **TextMate scopes** - The scope names that apply to that token
+   - **Theme rules** - Which theme rules are being applied
+   - **Foreground/background colors** - The actual colors being used
+   - **Font style** - Bold, italic, etc.
+
+This is invaluable for developers when:
+- **Finding scope names** when adding new syntax highlighting rules
+- **Debugging** why certain elements aren't styled correctly
+- **Understanding** how multiple rules interact
+- **Verifying** that color variables are being applied correctly
+- **Providing information to Claude** about what scopes need styling
+
+**Example developer workflow:**
+1. Open a markdown file in Extension Development Host
+2. Run the inspect command
+3. Click on a heading that looks wrong
+4. See the scope (e.g., `markup.heading.1.markdown`)
+5. Either adjust the rule in `src/token-colors.js` yourself, or provide the scope information to Claude for assistance
 
 ## Troubleshooting
 
