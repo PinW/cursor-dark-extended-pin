@@ -48,71 +48,88 @@ For final validation or when Extension Development Host isn't available:
 
 ```
 cursor-dark-extended-pin/
+├── src/                                           # Source files (NEW)
+│   ├── colors.js                                 # Color variable definitions
+│   ├── theme-template.js                         # Theme structure template
+│   └── token-colors.js                           # Syntax highlighting rules
 ├── themes/
-│   └── cursor-dark-extended-pin-color-theme.json  # Main theme file
-├── test-samples/                                   # Test files
-│   ├── sample.md                                  # Markdown test file
-│   ├── sample-code.js                             # JavaScript test file
-│   └── README.md                                  # Testing guide
-├── package.json                                   # Extension manifest
-├── colors.md                                      # Color reference
-├── .vscodeignore                                  # Packaging exclusions
-└── DEVELOPMENT.md                                 # This file
+│   └── cursor-dark-extended-pin-color-theme.json # Generated theme file
+├── test-samples/                                  # Test files
+│   ├── sample.md                                 # Markdown test file
+│   └── sample-code.js                            # JavaScript test file
+├── build.js                                      # Build script (NEW)
+├── package.json                                  # Extension manifest
+├── colors.md                                     # Color reference
+├── .vscodeignore                                 # Packaging exclusions
+└── DEVELOPMENT.md                                # This file
 ```
 
 ## Available Scripts
 
+### Variable-Based Development (Recommended)
+- `npm run build:theme` - Build theme from source files
+- `npm run build:watch` - Watch for changes and auto-rebuild
+- `npm run install-local` - Build and install to development location
+
+### Extension Packaging
+- `npm run build` - Build theme + package extension into .vsix file
+- `npm run package` - Build theme + create .vsix package
+
+### Development Helpers
 - `npm run dev` - Shows development instructions
-- `npm run build` - Packages extension into .vsix file
-- `npm run install-local` - Copies extension to Cursor extensions folder
 - `npm run test` - Shows testing instructions
 
 ## Making Theme Changes
 
-### 1. Understanding the Theme File
+### Variable-Based Development (NEW)
 
-The theme is defined in `themes/cursor-dark-extended-pin-color-theme.json`:
+Instead of editing the JSON directly, modify the source files:
 
-```json
-{
-  "name": "Cursor Dark Extended Pin v1.0.0",
-  "colors": { /* UI colors */ },
-  "tokenColors": [ /* Syntax highlighting rules */ ]
-}
+**1. Color Changes** - Edit `src/colors.js`:
+```javascript
+export const markdown = {
+  h1: syntax.functions,     // Change to different color variable
+  bold: syntax.numbers,     // Use syntax colors
+  // ...
+};
 ```
 
-### 2. Adding New Token Colors
+**2. Theme Structure** - Edit `src/theme-template.js`:
+```javascript
+"editor.background": backgrounds.secondary,  // Use variable reference
+```
 
-To add or modify syntax highlighting:
-
-```json
+**3. Syntax Rules** - Edit `src/token-colors.js`:
+```javascript
 {
   "name": "Markdown H1 Heading",
-  "scope": "markup.heading.1.markdown",
+  "scope": "markup.heading.1.markdown", 
   "settings": {
-    "foreground": "#efb080",
+    "foreground": markdown.h1,  // Use variable instead of hardcoded color
     "fontStyle": "bold"
   }
 }
 ```
 
-### 3. Color Palette
+**4. Build** - Generate the final theme:
+```bash
+npm run build:theme
+```
 
-Use colors from `colors.md` for consistency:
+### Color System
 
-**Heading Colors:**
-- H1: `#efb080` (warm orange)
-- H2: `#87c3ff` (bright blue)
-- H3: `#aaa0fa` (light purple)
-- H4: `#f8c762` (golden yellow)
-- H5: `#a8cc7c` (light green)
-- H6: `#e394dc` (pink/magenta)
+The new variable-based system provides organized color families:
 
-**Text Formatting:**
-- Bold: `#FFFFFF` (pure white)
-- Italic: `#83d6c5` (teal)
-- Code: `#e394dc` (pink/magenta)
-- Links: `#88C0D0` (light blue)
+**Color Variables** (from `src/colors.js`):
+- `backgrounds`: Primary, secondary, tertiary background colors
+- `foregrounds`: Text and UI foreground colors  
+- `accents`: Blue accent colors for interactive elements
+- `status`: Green, red, yellow for status indicators
+- `syntax`: All syntax highlighting colors
+- `markdown`: Markdown-specific color mappings
+
+**Color Consistency:**
+Always reference variables from `src/colors.js` for centralized maintenance.
 
 ## Testing Checklist
 
@@ -149,13 +166,19 @@ Use colors from `colors.md` for consistency:
 4. Check for errors in Developer Tools
 
 ### Changes Not Appearing
-1. Verify you're editing the correct theme file
+1. **Variable-based**: Run `npm run build:theme` after editing source files
 2. Check that Extension Development Host is running
 3. Try reloading the development host window
-4. Ensure JSON syntax is valid
+4. Verify you're editing `src/` files, not the generated JSON
+
+### Build Errors
+1. Check JavaScript syntax in `src/` files
+2. Ensure all color variables are properly defined
+3. Verify `build.js` script runs without errors
+4. Check that all imports/exports are correct
 
 ### Theme Not Loading
-1. Validate JSON syntax in theme file
+1. Validate generated JSON syntax in theme file
 2. Check file paths in `package.json`
 3. Verify extension is properly packaged
 4. Check VS Code/Cursor extension log for errors

@@ -21,16 +21,15 @@ See [DEVELOPMENT.md](DEVELOPMENT.md) for detailed development instructions.
 
 ## Color Palette
 
-The theme uses a carefully designed color palette with distinct heading colors:
+The theme uses a variable-based color system with consistent heading colors:
 
-- **H1**: `#efb080` (warm orange)
-- **H2**: `#87c3ff` (bright blue)
-- **H3**: `#aaa0fa` (light purple)
-- **H4**: `#f8c762` (golden yellow)
-- **H5**: `#a8cc7c` (light green)
-- **H6**: `#e394dc` (pink/magenta)
+- **All Headings**: `#BF616A` (title red) - Unified heading hierarchy
+- **Bold Text**: `#efb080` (warm orange)
+- **Italic Text**: `#83d6c5` (teal/cyan)
+- **Links**: `#88C0D0` (light blue)
+- **Inline Code**: `#e394dc` (pink/magenta)
 
-For the complete color reference, see [colors.md](colors.md).
+For the complete color reference, see [src/colors.js](src/colors.js).
 
 ## Screenshots
 
@@ -38,16 +37,23 @@ The theme provides enhanced markdown rendering while maintaining the Cursor Dark
 
 ## Development
 
-This extension is designed for easy development and testing:
+This extension uses a modern variable-based architecture for easy development:
 
 ```bash
-# Install to development location
+# Build theme from source files
+npm run build:theme
+
+# Build and install to development location  
 npm run install-local
 
-# Build extension
+# Build extension package (.vsix)
 npm run build
 
-# Test changes (use Extension Development Host - press F5)
+# Watch for changes and auto-rebuild
+npm run build:watch
+
+# Launch Extension Development Host (recommended)
+# Press F5 in VS Code/Cursor
 npm run dev
 ```
 

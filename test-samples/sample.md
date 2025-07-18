@@ -118,17 +118,3 @@ npm run dev
 ```
 
 > **Note:** This is a blockquote with **bold text** and `inline code` mixed in.
-
-## Conclusion
-
-This sample markdown file tests various elements that should be enhanced by the theme:
-- Different heading levels (H1-H6)
-- Text formatting (bold, italic, code)
-- Code blocks with syntax highlighting
-- Lists (ordered and unordered)
-- Links and references
-- Blockquotes
-- Tables
-- Mixed content scenarios
-
-The theme should provide distinct, readable styling for each element while maintaining the overall Cursor Dark aesthetic.

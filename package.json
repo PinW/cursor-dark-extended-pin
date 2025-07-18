@@ -4,6 +4,7 @@
   "description": "Extended Cursor Dark theme with updated colors and enhanced markdown syntax highlighting",
   "version": "1.0.0",
   "publisher": "local",
+  "type": "module",
   "engines": {
     "vscode": "^1.74.0"
   },
@@ -28,10 +29,12 @@
     ]
   },
   "scripts": {
-    "build": "vsce package",
+    "build": "node build.js && vsce package",
+    "build:theme": "node build.js",
+    "build:watch": "node build.js --watch",
     "dev": "echo 'Development mode: Press F5 in VS Code/Cursor to launch Extension Development Host'",
-    "install-local": "rsync -av --exclude='.git' . \"/mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin/\" && echo 'Extension copied to Cursor extensions folder'",
-    "package": "vsce package",
+    "install-local": "npm run build:theme && rsync -av --exclude='.git' . \"/mnt/c/Users/pinwa/.cursor/extensions/cursor-dark-extended-pin/\" && echo 'Extension copied to Cursor extensions folder'",
+    "package": "npm run build:theme && vsce package",
     "test": "echo 'Open test-samples/ files in Extension Development Host to test theme changes'"
   }
 }
