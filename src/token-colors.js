@@ -1093,6 +1093,22 @@ export const tokenColors = [
     }
   },
   {
+    "name": "Markdown Link Text (Remove Bold Style)",
+    "scope": "markup.underline.link.markdown",
+    "settings": {
+      "foreground": markdown.linkUrl,
+      "fontStyle": ""
+    }
+  },
+  {
+    "name": "Markdown Reference Link (Remove Bold Style)",
+    "scope": "constant.other.reference.link.markdown",
+    "settings": {
+      "foreground": markdown.linkUrl,
+      "fontStyle": ""
+    }
+  },
+  {
     "name": "Markdown Heading Punctuation",
     "scope": "punctuation.definition.heading.markdown",
     "settings": {
