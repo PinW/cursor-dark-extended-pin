@@ -110,6 +110,14 @@ This section combines multiple elements:
 2. *Italic list item* with `inline code`
 3. Regular item with > a quote character
 
+## File References
+
+In Claude, you can use the @ symbol to reference files:
+- @package.json to reference the package file
+- @src/components/Button.tsx for specific components
+- @README.md to reference documentation
+- @src/styles/globals.css for stylesheets
+
 ```bash
 # Command line example
 cd /path/to/project
