@@ -1,0 +1,17 @@
+{
+  "scopeName": "markdown.file-reference.injection",
+  "injectionSelector": "L:text.html.markdown",
+  "patterns": [
+    {
+      "match": "(?<!\\w)(@)([\\w\\d./_-]+)",
+      "captures": {
+        "1": {
+          "name": "punctuation.definition.reference.at.markdown"
+        },
+        "2": {
+          "name": "entity.name.reference.file.markdown"
+        }
+      }
+    }
+  ]
+}

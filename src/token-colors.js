@@ -2014,6 +2014,22 @@ export const tokenColors = [
     "settings": {
       "fontStyle": "italic"
     }
+  },
+  {
+    "name": "Markdown File Reference @ Symbol",
+    "scope": "punctuation.definition.reference.at.markdown",
+    "settings": {
+      "foreground": markdown.fileReferenceSymbol,
+      "fontStyle": "bold"
+    }
+  },
+  {
+    "name": "Markdown File Reference Path",
+    "scope": "entity.name.reference.file.markdown",
+    "settings": {
+      "foreground": markdown.fileReferencePath,
+      "fontStyle": "bold"
+    }
   }
 ];
 

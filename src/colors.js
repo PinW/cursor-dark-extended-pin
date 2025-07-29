@@ -150,6 +150,10 @@ export const markdown = {
   // Other
   metadataPunctuation: syntax.syntax, // punctuation.definition.metadata.markdown (foregrounds.syntax)
   setextHeading: syntax.syntax,      // markup.heading.setext (foregrounds.syntax)
+  
+  // File References (@ symbol)
+  fileReferenceSymbol: syntax.propertiesAlt,   // Light blue - for @ symbol in file references
+  fileReferencePath: syntax.propertiesAlt,        // Light purple - for file path portion
 };
 
 // Export all color groups

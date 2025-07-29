@@ -26,6 +26,13 @@
         "uiTheme": "vs-dark",
         "path": "./themes/cursor-dark-extended-pin-color-theme.json"
       }
+    ],
+    "grammars": [
+      {
+        "injectTo": ["text.html.markdown"],
+        "scopeName": "markdown.file-reference.injection",
+        "path": "./grammars/file-reference.json"
+      }
     ]
   },
   "scripts": {

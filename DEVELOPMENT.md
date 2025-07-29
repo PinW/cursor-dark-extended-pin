@@ -150,7 +150,7 @@ When adding new syntax highlighting rules:
 **Development cycle:**
 1. Edit source files in main window (`src/colors.js`, `src/token-colors.js`, etc.)
 2. Run `npm run build:theme` to regenerate theme
-3. Reload development host window (Ctrl+R/Cmd+R) to see changes
+3. Reload development host window using `Ctrl+Shift+R` (Windows/Linux) or `Cmd+Shift+R` (Mac) to see changes
 4. Test with sample files in development host
 
 **Pro tip:** Use `npm run build:watch` for automatic rebuilding on file changes.

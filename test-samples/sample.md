@@ -117,6 +117,17 @@ In Claude, you can use the @ symbol to reference files:
 - @src/components/Button.tsx for specific components
 - @README.md to reference documentation
 - @src/styles/globals.css for stylesheets
+- @build/index.js for build outputs
+- @docs/api/reference.md for nested documentation
+- @my-component.vue for Vue components
+- @my_file.ts for TypeScript files with underscores
+- @config for directories without extensions
+- @src/utils for utility directories
+
+### Edge Cases Testing
+- File references should work: @package.json, @src/components/Button.tsx
+- Email addresses should NOT be highlighted: user@domain.com, test@example.org
+- Social handles like @username will be highlighted (unavoidable, but acceptable)
 
 ```bash
 # Command line example
