@@ -4,9 +4,8 @@ A VS Code/Cursor theme extension that extends the original Cursor Dark theme wit
 
 ## Features
 
-- **Preserves Cursor Dark UI** - Maintains the beloved Cursor Dark interface colors
-- **Enhanced Markdown Support** - Distinct heading hierarchy with carefully chosen colors
-- **Improved Readability** - Better contrast and visual distinction for documentation
+- **Preserves Cursor Dark UI** - Maintains the Cursor Dark interface colors
+- **Enhanced Markdown Support** - Heading colors, highlighting for @path/ tags
 - **Variable-Based Architecture** - Modern build system for easy customization
 
 ## Installation
@@ -21,13 +20,14 @@ See [DEVELOPMENT.md](DEVELOPMENT.md) for complete development setup and workflow
 
 ## Color Palette
 
-The theme uses a unified heading color with distinct formatting:
+By default, markdown colors are:
 
-- **All Headings**: `#BF616A` (title red) - Consistent hierarchy
-- **Bold Text**: `#e0bb7f` (warm yellow) - Clear emphasis  
-- **Italic Text**: `#83d6c5` (teal/cyan) - Subtle distinction
-- **Links**: `#88C0D0` (light blue) - Easy identification
-- **Inline Code**: `#e394dc` (pink/magenta) - Code highlighting
+- **All Headings**: `#BF616A` (title red)
+- **Bold Text**: `#e0bb7f` (warm yellow)
+- **Italic Text**: `#83d6c5` (teal/cyan)
+- **Links**: `#88C0D0` (light blue)
+- **Inline Code**: `#e394dc` (pink/magenta)
+- **@ File References**: `#af9cff` (purple)
 
 For the complete color system, see [src/colors.js](src/colors.js).
 
