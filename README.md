@@ -33,24 +33,23 @@ For the complete color system, see [src/colors.js](src/colors.js).
 
 ## Quick Start
 
-```bash
-# Package extension
-npm run build
+### Easy Installation (Pre-built VSIX)
+1. Download the latest `.vsix` file from the [releases page](https://github.com/PinW/cursor-dark-extended-pin/releases)
+2. In VS Code/Cursor: Command Palette → `Extensions: Install from VSIX...`
+3. Select the downloaded `.vsix` file
 
-# Install to local development
-npm run install-local
+### Customization
+1. Edit colors in `src/colors.js`
+2. Launch development environment (Pree F5 in VS Code/Cursor for Extension Development Host)
+3. Build and install:
+   ```bash
+   # Package extension from source
+   npm run build
 
-# Launch development environment
-# Press F5 in VS Code/Cursor for Extension Development Host
-```
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Test using the provided sample files
-5. Submit a pull request
+   # Install to local development location
+   npm run install-local
+   ```
+4. Reload your editor (CTRL+SHIFT+R) to see changes
 
 ## License
 
@@ -58,4 +57,4 @@ MIT License - see [LICENSE](LICENSE) for details.
 
 ## Acknowledgments
 
-Based on the original Cursor Dark theme. Enhanced for better markdown documentation readability.
+Based on the original Cursor Dark theme. Enhanced for better markdown syntax highlighting.
